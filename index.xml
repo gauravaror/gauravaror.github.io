@@ -6,10 +6,20 @@
     <description>Recent content on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Nov 2019 13:32:30 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 16:14:09 +1100</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Xapian</title>
+      <link>https://gauravaror.github.io/xapian/</link>
+      <pubDate>Mon, 18 Nov 2019 16:14:09 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/xapian/</guid>
+      <description>I offer commerical development support for Xapian since 2014. I have developed following capabolities in Xapian commerically:
+  Decoupled indexing and text extraction which reduced indexing time for 1 million images from several days to a few hours.  Enabled indexing of images using Optixal Character Recognition (OCR).   Designed and implemented a heuristic algorithm to extract table from images. IBM used this module for fraud detection on images and pdfs.</description>
+    </item>
     
     <item>
       <title>News</title>
