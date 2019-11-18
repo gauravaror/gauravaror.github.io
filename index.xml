@@ -18,7 +18,7 @@
       
       <guid>https://gauravaror.github.io/xapian/</guid>
       <description>I offer commerical development support for Xapian since 2014. I have developed following capabolities in Xapian commerically:
-  Decoupled indexing and text extraction which reduced indexing time for 1 million images from several days to a few hours.  Enabled indexing of images using Optixal Character Recognition (OCR).   Designed and implemented a heuristic algorithm to extract table from images. IBM used this module for fraud detection on images and pdfs.</description>
+  Decoupled indexing and text extraction which drastically reducing indexing time.  Enabled indexing of images using tessaract.   Designed and implemented a heuristic algorithm to extract table from images.  Worked on implementing Language Modelling based ranking scheme in Xapian (GSOC).   Worked on evaluation framework for xapian.   </description>
     </item>
     
     <item>
