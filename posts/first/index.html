@@ -58,7 +58,7 @@
   "headline": "gdb Demystified",
   "description" : "gdb is one of the useful commands to debug what\x27s going wrong with your program. Let\x27s try to demystify it!!",
   "inLanguage" : "en",
-  "wordCount":  223 ,
+  "wordCount":  224 ,
   "datePublished" : "2019-09-29T16:29:48",
   "dateModified" : "2019-09-29T16:29:48",
   "image" : "https:\/\/gauravaror.github.io\/",
@@ -241,13 +241,13 @@
 <p><b>Step 1</b>
 Check the process id of your program:</p>
 
-<pre><code>ps -ef | grep program
+<pre><code class="language-shell">ps -ef | grep program
 </code></pre>
 
 <p>Step 2
 Attach to the stuck process via gdb, when it is in a stuck state</p>
 
-<pre><code>gdb -attach pid
+<pre><code class="language-shell">gdb -attach pid
 </code></pre>
 
 <p>Step 3
@@ -256,10 +256,11 @@ Check the stack trace of the hanging process.</p>
 <pre><code>bt
 </code></pre>
 
-<p>Step 4
+<p>shell
+Step 4
 If your process is hanged in a library point and you are not able to get the context in your code, i.e file which is</p>
 
-<pre><code># to go one level down in stack trace
+<pre><code class="language-shell"># to go one level down in stack trace
 frame 1
 # to go two level down in stack trace
 frame 2
@@ -270,7 +271,7 @@ frame 3
 <p>Step 5
 Print the variable to check the context, i.e what input made the program stuck.</p>
 
-<pre><code># dump is here the main variable which is making the replace operation stuck for me.
+<pre><code class="language-shell"># dump is here the main variable which is making the replace operation stuck for me.
 p dump
 </code></pre>
 
