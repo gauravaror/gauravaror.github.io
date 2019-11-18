@@ -213,8 +213,7 @@
     </p>
     <div class="post-entry">
         
-        What&#39;s wrong    I wrote a shell script to generate data for a test I was writing. The script goes something like this:
-Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do data=&quot;${data}newdata=$i&quot;; done ##Time for this script ##./new.sh 9.01s user 0.02s system 99% cpu 9.049 total  It sure looks like a script which can run in O(n) time, a single for loop.
+        <p>Can a single for loop be running with quadratic time complexity?</p>
         <a href="https://gauravaror.github.io/posts/linear_quadratic/" class="post-read-more">[Read More]</a>
         
     </div>
@@ -251,11 +250,7 @@ Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do data=&quot;${data
     </p>
     <div class="post-entry">
         
-        gdb is one of the useful commands to debug what&rsquo;s going wrong with your program.
-Let&rsquo;s try to understand how we can demystify where and what is making your code hang in a running program.
-Step 1 Check the process id of your program:
-ps -ef | grep program  Step 2 Attach to the stuck process via gdb, when it is in a stuck state
-gdb -attach pid  Step 3 Check the stack trace of the hanging process.
+        <p><strong>gdb</strong> is one of the useful commands to debug what&rsquo;s going wrong with your program.</p>
         <a href="https://gauravaror.github.io/posts/first/" class="post-read-more">[Read More]</a>
         
     </div>

@@ -8,8 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>Linear to Quadratic and back - Gaurav Arora</title>
-  <meta name="description" content="What&#39;s wrong    I wrote a shell script to generate data for a test I was writing. The script goes something like this:
-Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do data=&quot;${data}newdata=$i&quot;; done ##Time for this script ##./new.sh 9.01s user 0.02s system 99% cpu 9.049 total  It sure looks like a script which can run in O(n) time, a single for loop."><script type="application/ld+json">
+  <meta name="description" content="Can a single for loop be running with quadratic time complexity?"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -57,9 +56,9 @@ Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do data=&quot;${data
     "name" : ""
   },
   "headline": "Linear to Quadratic and back",
-  "description" : "What\x26#39;s wrong    I wrote a shell script to generate data for a test I was writing. The script goes something like this:\nScript A #!\/bin\/sh data=\x26quot;\x26quot; for i in `seq 1 6000`; do data=\x26quot;${data}newdata=$i\x26quot;; done ##Time for this script ##.\/new.sh 9.01s user 0.02s system 99% cpu 9.049 total  It sure looks like a script which can run in O(n) time, a single for loop.",
+  "description" : "Can a single for loop be running with quadratic time complexity?\n",
   "inLanguage" : "en",
-  "wordCount":  346 ,
+  "wordCount":  357 ,
   "datePublished" : "2019-11-18T21:37:37",
   "dateModified" : "2019-11-18T21:37:37",
   "image" : "https:\/\/gauravaror.github.io\/",
@@ -79,15 +78,13 @@ Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do data=&quot;${data
 </script>
 
 <meta property="og:title" content="Linear to Quadratic and back" />
-<meta property="og:description" content="What&#39;s wrong    I wrote a shell script to generate data for a test I was writing. The script goes something like this:
-Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do data=&quot;${data}newdata=$i&quot;; done ##Time for this script ##./new.sh 9.01s user 0.02s system 99% cpu 9.049 total  It sure looks like a script which can run in O(n) time, a single for loop.">
+<meta property="og:description" content="Can a single for loop be running with quadratic time complexity?">
 <meta property="og:url" content="https://gauravaror.github.io/posts/linear_quadratic/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Gaurav Arora" />
 
   <meta name="twitter:title" content="Linear to Quadratic and back" />
-  <meta name="twitter:description" content="What&#39;s wrong    I wrote a shell script to generate data for a test I was writing. The script goes something like this:
-Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do …">
+  <meta name="twitter:description" content="Can a single for loop be running with quadratic time complexity?">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.59.1" />
   <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -235,8 +232,7 @@ Script A #!/bin/sh data=&quot;&quot; for i in `seq 1 6000`; do …">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        
-
+        <p>Can a single for loop be running with quadratic time complexity?</p>
 
 <link rel="stylesheet" href="https://gauravaror.github.io/css/hugo-easy-gallery.css" />
 <div class="box" >
@@ -311,7 +307,6 @@ done
 <p>These small mistakes can make your program unusable. Though our example is in the shell script, doing this mistake in other languages is possible but less probable as people are used to += operators.</p>
 
 <p>But the various version of bash with different features these mistakes highly probable in shell scripting.</p>
-
 
         
 
