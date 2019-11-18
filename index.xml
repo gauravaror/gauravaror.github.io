@@ -6,10 +6,19 @@
     <description>Recent content on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Nov 2019 13:15:04 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 18 Nov 2019 13:32:30 +1100</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>News</title>
+      <link>https://gauravaror.github.io/news/</link>
+      <pubDate>Mon, 18 Nov 2019 13:32:30 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/news/</guid>
+      <description>Paper selected at ALTA 2019 [https://alta2019.alta.asn.au/papers]</description>
+    </item>
     
     <item>
       <title>About</title>
