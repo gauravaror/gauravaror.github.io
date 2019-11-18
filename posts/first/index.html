@@ -7,8 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>First - Gaurav Arora</title>
-  <meta name="description" content="This is my first post now rendered with hugo css error."><script type="application/ld+json">
+  <title>&lt;b&gt;gdb&lt;/b&gt; Demystified - Gaurav Arora</title>
+  <meta name="description" content="gdb is one of the useful commands to debug what&rsquo;s going wrong with your program.
+
+Let&rsquo;s try to understand how we can demystify where and what is making your code hang in a running program.
+Step 1 Check the process id of your program:
+ps -ef | grep program Step 2 Attach to the stuck process via gdb, when it is in a stuck state gdb -attach pid Step 3 Check the stack trace of the hanging process."><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -44,7 +48,7 @@
         "position": 3,
         "item": {
           "@id": "https:\/\/gauravaror.github.io\/posts\/first\/",
-          "name": "First"
+          "name": "\x3cb\x3egdb\x3c\/b\x3e demystified"
         }
     }]
 }
@@ -55,10 +59,10 @@
   "author": {
     "name" : ""
   },
-  "headline": "First",
-  "description" : "This is my first post now rendered with hugo css error.",
+  "headline": "\x3cb\x3egdb\x3c\/b\x3e Demystified",
+  "description" : "gdb is one of the useful commands to debug what\x26rsquo;s going wrong with your program.\n\nLet\x26rsquo;s try to understand how we can demystify where and what is making your code hang in a running program.\nStep 1 Check the process id of your program:\nps -ef | grep program Step 2 Attach to the stuck process via gdb, when it is in a stuck state gdb -attach pid Step 3 Check the stack trace of the hanging process.",
   "inLanguage" : "en",
-  "wordCount":  11 ,
+  "wordCount":  223 ,
   "datePublished" : "2019-09-29T16:29:48",
   "dateModified" : "2019-09-29T16:29:48",
   "image" : "https:\/\/gauravaror.github.io\/",
@@ -77,14 +81,20 @@
 }
 </script>
 
-<meta property="og:title" content="First" />
-<meta property="og:description" content="This is my first post now rendered with hugo css error.">
+<meta property="og:title" content="&lt;b&gt;gdb&lt;/b&gt; Demystified" />
+<meta property="og:description" content="gdb is one of the useful commands to debug what&rsquo;s going wrong with your program.
+
+Let&rsquo;s try to understand how we can demystify where and what is making your code hang in a running program.
+Step 1 Check the process id of your program:
+ps -ef | grep program Step 2 Attach to the stuck process via gdb, when it is in a stuck state gdb -attach pid Step 3 Check the stack trace of the hanging process.">
 <meta property="og:url" content="https://gauravaror.github.io/posts/first/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Gaurav Arora" />
 
-  <meta name="twitter:title" content="First" />
-  <meta name="twitter:description" content="This is my first post now rendered with hugo css error.">
+  <meta name="twitter:title" content="&lt;b&gt;gdb&lt;/b&gt; Demystified" />
+  <meta name="twitter:description" content="gdb is one of the useful commands to debug what&rsquo;s going wrong with your program.
+
+Let&rsquo;s try to understand how we can demystify where and what is making your code hang in a running program. …">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.59.1" />
   <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -212,7 +222,7 @@
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>First</h1>
+                <h1>&lt;b&gt;gdb&lt;/b&gt; Demystified</h1>
               
               
                 <hr class="small">
@@ -232,7 +242,40 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>This is my first post now rendered with hugo css error.</p>
+        <p><b>gdb</b> is one of the useful commands to debug what&rsquo;s going wrong with your program.</p>
+
+<p></br></p>
+
+<p>Let&rsquo;s try to understand how we can demystify where and what is making your code hang in a running program.</p>
+
+<p><b>Step 1</b>
+Check the process id of your program:</p>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">ps <span style="color:#f92672">-</span>ef <span style="color:#f92672">|</span> grep program</code></pre></div>
+
+<p>Step 2
+Attach to the stuck process via gdb, when it is in a stuck state
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">gdb <span style="color:#f92672">-</span>attach pid</code></pre></div>
+Step 3
+Check the stack trace of the hanging process.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">bt</code></pre></div>
+Step 4
+If your process is hanged in a library point and you are not able to get the context in your code, i.e file which is
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e"># to go one level down in stack trace
+</span><span style="color:#75715e"></span>frame <span style="color:#ae81ff">1</span>
+<span style="color:#75715e"># to go two level down in stack trace
+</span><span style="color:#75715e"></span>frame <span style="color:#ae81ff">2</span>
+<span style="color:#75715e"># to go three level down in stack trace
+</span><span style="color:#75715e"></span>frame <span style="color:#ae81ff">3</span></code></pre></div>
+Step 5
+Print the variable to check the context, i.e what input made the program stuck.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e"># dump is here the main variable which is making the replace operation stuck for me.
+</span><span style="color:#75715e"></span>p dump</code></pre></div>
+Step 6
+Take the corrective action by understanding the nature of the problem by changing the reference of frames and see what the variable (input) making you program stuck.
+- Will add more use cases, as I come along.</p>
+
+<p>This is my first post now rendered with hugo css error.</p>
 
 
         

@@ -185,7 +185,7 @@
           
             <article class="post-preview">
     <a href="https://gauravaror.github.io/posts/first/">
-        <h2 class="post-title">First</h2>
+        <h2 class="post-title">&lt;b&gt;gdb&lt;/b&gt; Demystified</h2>
         
         
         
@@ -211,8 +211,12 @@
     </p>
     <div class="post-entry">
         
-        <p>This is my first post now rendered with hugo css error.</p>
+        gdb is one of the useful commands to debug what&rsquo;s going wrong with your program.
 
+Let&rsquo;s try to understand how we can demystify where and what is making your code hang in a running program.
+Step 1 Check the process id of your program:
+ps -ef | grep program Step 2 Attach to the stuck process via gdb, when it is in a stuck state gdb -attach pid Step 3 Check the stack trace of the hanging process.
+        <a href="https://gauravaror.github.io/posts/first/" class="post-read-more">[Read More]</a>
         
     </div>
 
