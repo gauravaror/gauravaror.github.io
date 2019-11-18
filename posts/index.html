@@ -215,7 +215,8 @@
 
 Let&rsquo;s try to understand how we can demystify where and what is making your code hang in a running program.
 Step 1 Check the process id of your program:
-ps -ef | grep program Step 2 Attach to the stuck process via gdb, when it is in a stuck state gdb -attach pid Step 3 Check the stack trace of the hanging process.
+ps -ef | grep program  Step 2 Attach to the stuck process via gdb, when it is in a stuck state
+gdb -attach pid  Step 3 Check the stack trace of the hanging process.
         <a href="https://gauravaror.github.io/posts/first/" class="post-read-more">[Read More]</a>
         
     </div>

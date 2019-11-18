@@ -241,27 +241,40 @@
 <p><b>Step 1</b>
 Check the process id of your program:</p>
 
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">ps <span style="color:#f92672">-</span>ef <span style="color:#f92672">|</span> grep program</code></pre></div>
+<pre><code>ps -ef | grep program
+</code></pre>
 
 <p>Step 2
-Attach to the stuck process via gdb, when it is in a stuck state
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">gdb <span style="color:#f92672">-</span>attach pid</code></pre></div>
-Step 3
-Check the stack trace of the hanging process.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">bt</code></pre></div>
-Step 4
-If your process is hanged in a library point and you are not able to get the context in your code, i.e file which is
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e"># to go one level down in stack trace
-</span><span style="color:#75715e"></span>frame <span style="color:#ae81ff">1</span>
-<span style="color:#75715e"># to go two level down in stack trace
-</span><span style="color:#75715e"></span>frame <span style="color:#ae81ff">2</span>
-<span style="color:#75715e"># to go three level down in stack trace
-</span><span style="color:#75715e"></span>frame <span style="color:#ae81ff">3</span></code></pre></div>
-Step 5
-Print the variable to check the context, i.e what input made the program stuck.
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e"># dump is here the main variable which is making the replace operation stuck for me.
-</span><span style="color:#75715e"></span>p dump</code></pre></div>
-Step 6
+Attach to the stuck process via gdb, when it is in a stuck state</p>
+
+<pre><code>gdb -attach pid
+</code></pre>
+
+<p>Step 3
+Check the stack trace of the hanging process.</p>
+
+<pre><code>bt
+</code></pre>
+
+<p>Step 4
+If your process is hanged in a library point and you are not able to get the context in your code, i.e file which is</p>
+
+<pre><code># to go one level down in stack trace
+frame 1
+# to go two level down in stack trace
+frame 2
+# to go three level down in stack trace
+frame 3
+</code></pre>
+
+<p>Step 5
+Print the variable to check the context, i.e what input made the program stuck.</p>
+
+<pre><code># dump is here the main variable which is making the replace operation stuck for me.
+p dump
+</code></pre>
+
+<p>Step 6
 Take the corrective action by understanding the nature of the problem by changing the reference of frames and see what the variable (input) making you program stuck.
 - Will add more use cases, as I come along.</p>
 
