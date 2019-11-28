@@ -26,7 +26,8 @@
       <pubDate>Mon, 18 Nov 2019 16:14:09 +1100</pubDate>
       
       <guid>https://gauravaror.github.io/xapian/</guid>
-      <description>I offer commercial development support for Xapian since 2014. I have developed the following capabilities in Xapian commercially:</description>
+      <description>I offer commercial development support for Xapian since 2014. I have developed the following capabilities in Xapian commercially:
+ Decoupled indexing and text extraction, which drastically reducing indexing time. Enabled indexing of images using tesseract. I have designed and implemented a heuristic algorithm to extract table from images. I have implemented the Language Modelling based ranking scheme in Xapian (GSOC). I have developed an evaluation framework for Xapian.  </description>
     </item>
     
     <item>
