@@ -26,17 +26,7 @@
       <pubDate>Mon, 18 Nov 2019 16:14:09 +1100</pubDate>
       
       <guid>https://gauravaror.github.io/xapian/</guid>
-      <description>I offer commercial development support for Xapian since 2014. I have developed the following capabilities in Xapian commercially:
-  Decoupled indexing and text extraction, which drastically reducing indexing time.   Enabled indexing of images using tesseract.   I have designed and implemented a heuristic algorithm to extract table  from images.   I have implemented the Language Modelling based ranking scheme  in Xapian (GSOC).   I have developed an evaluation framework  for Xapian.</description>
-    </item>
-    
-    <item>
-      <title>News</title>
-      <link>https://gauravaror.github.io/news/</link>
-      <pubDate>Mon, 18 Nov 2019 13:32:30 +1100</pubDate>
-      
-      <guid>https://gauravaror.github.io/news/</guid>
-      <description>  Oct 22, 2019 &amp;nbsp; Paper accepted at ALTA 2019   Jul 23, 2018 &amp;nbsp; Started MS (CS) at The University of Melbourne with Prof. Timothy Baldwin  and Afshin Rahimi   </description>
+      <description>I offer commercial development support for Xapian since 2014. I have developed the following capabilities in Xapian commercially:</description>
     </item>
     
     <item>
@@ -45,9 +35,8 @@
       <pubDate>Mon, 18 Nov 2019 13:15:04 +1100</pubDate>
       
       <guid>https://gauravaror.github.io/about/</guid>
-      <description>Hi! I am Gaurav Arora. 
-I am pursuing a Masters of Science (Computer Science) under the supervision of Prof. Timothy Baldwin. My master&amp;rsquo;s research project focuses on Catastrophic Forgetting in Neural Networks. Our empirical study comparing different architecture like CNN, and LSTM for forgetting was accepted in ALTA 2019.
-I have been offering consultancy services for Xapian from 2014. Please find a list of my Xapian related projects here. I was a Google Summer of Code Intern with Xapian in 2012.</description>
+      <description>Hi! I am Gaurav Arora. I am pursuing a Masters of Science (Computer Science) under the supervision of Prof. Timothy Baldwin. My master&#39;s research project focuses on Catastrophic Forgetting in Neural Networks. Our empirical study comparing different architecture like CNN, and LSTM for forgetting was accepted in ALTA 2019.
+I have been offering consultancy services for Xapianfrom 2014. Please find a list of my Xapian related projects here. I was a Google Summer of Code Intern with Xapian in 2012.</description>
     </item>
     
     <item>
@@ -56,7 +45,7 @@ I have been offering consultancy services for Xapian from 2014. Please find a li
       <pubDate>Sun, 29 Sep 2019 16:29:48 +1000</pubDate>
       
       <guid>https://gauravaror.github.io/posts/first/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;gdb&lt;/strong&gt; is one of the useful commands to debug what&amp;rsquo;s going wrong with your program.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;gdb&lt;/strong&gt; is one of the useful commands to debug what&#39;s going wrong with your program.&lt;/p&gt;</description>
     </item>
     
   </channel>
