@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 18 Nov 2019 21:37:37 +1100</lastBuildDate>
+    <lastBuildDate>Thu, 28 Nov 2019 17:45:50 +1100</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>WIP:A short tour of libpst</title>
+      <link>https://gauravaror.github.io/posts/libpst/</link>
+      <pubDate>Thu, 28 Nov 2019 17:45:50 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/posts/libpst/</guid>
+      <description>&lt;p&gt;The &lt;code&gt;libpst&lt;/code&gt; is a library to extract text from microsoft properitery format &lt;code&gt;.pst&lt;/code&gt;, which is used to storing emails, attachments. There isn&#39;t a good documentation for &lt;code&gt;libpst&lt;/code&gt;.
+This is a simple tour writing a &lt;code&gt;c++&lt;/code&gt; program from scratch to extract an email and it&#39;s attachment from &lt;code&gt;.pst&lt;/code&gt; file using &lt;code&gt;libpst&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linear to Quadratic and back</title>
