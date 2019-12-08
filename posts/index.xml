@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 28 Nov 2019 17:45:50 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2019 10:39:07 +1100</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Running list of interesting links</title>
+      <link>https://gauravaror.github.io/posts/interesting/</link>
+      <pubDate>Mon, 09 Dec 2019 10:39:07 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/posts/interesting/</guid>
+      <description>&lt;p&gt;Below is a running list of interesting articles/StackOverflow answers which seems worth sharing and referring back.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>WIP:A short tour of libpst</title>
