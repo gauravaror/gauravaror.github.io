@@ -6,10 +6,19 @@
     <description>Recent content on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 11 Dec 2019 19:41:03 +1100</lastBuildDate>
+    <lastBuildDate>Fri, 27 Dec 2019 01:12:48 +1100</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gradient estimation for hard non-linearities</title>
+      <link>https://gauravaror.github.io/posts/straight_through_estimator/</link>
+      <pubDate>Fri, 27 Dec 2019 01:12:48 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/posts/straight_through_estimator/</guid>
+      <description>&lt;p&gt;The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Memory networks</title>

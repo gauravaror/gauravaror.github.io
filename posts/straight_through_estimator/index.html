@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Linear to Quadratic and back - Gaurav Arora</title>
-  <meta name="description" content="Can a single for loop be running with quadratic time complexity?"><script type="application/ld+json">
+  <title>Gradient estimation for hard non-linearities - Gaurav Arora</title>
+  <meta name="description" content="The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator."><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -43,8 +43,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/gauravaror.github.io\/posts\/linear_quadratic\/",
-          "name": "Linear to quadratic and back"
+          "@id": "https:\/\/gauravaror.github.io\/posts\/straight_through_estimator\/",
+          "name": "Gradient estimation for hard non linearities"
         }
     }]
 }
@@ -55,15 +55,15 @@
   "author": {
     "name" : ""
   },
-  "headline": "Linear to Quadratic and back",
-  "description" : "Can a single for loop be running with quadratic time complexity?\n",
+  "headline": "Gradient estimation for hard non-linearities",
+  "description" : "The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator.\n",
   "inLanguage" : "en",
-  "wordCount":  357 ,
-  "datePublished" : "2019-11-18T21:37:37",
-  "dateModified" : "2019-11-18T21:37:37",
+  "wordCount":  470 ,
+  "datePublished" : "2019-12-27T01:12:48",
+  "dateModified" : "2019-12-27T01:12:48",
   "image" : "https:\/\/gauravaror.github.io\/",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/gauravaror.github.io\/posts\/linear_quadratic\/",
+  "mainEntityOfPage" : "https:\/\/gauravaror.github.io\/posts\/straight_through_estimator\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/gauravaror.github.io\/",
@@ -77,14 +77,14 @@
 }
 </script>
 
-<meta property="og:title" content="Linear to Quadratic and back" />
-<meta property="og:description" content="Can a single for loop be running with quadratic time complexity?">
-<meta property="og:url" content="https://gauravaror.github.io/posts/linear_quadratic/" />
+<meta property="og:title" content="Gradient estimation for hard non-linearities" />
+<meta property="og:description" content="The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator.">
+<meta property="og:url" content="https://gauravaror.github.io/posts/straight_through_estimator/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Gaurav Arora" />
 
-  <meta name="twitter:title" content="Linear to Quadratic and back" />
-  <meta name="twitter:description" content="Can a single for loop be running with quadratic time complexity?">
+  <meta name="twitter:title" content="Gradient estimation for hard non-linearities" />
+  <meta name="twitter:description" content="The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in …">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.62.2" />
   <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -217,7 +217,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Linear to Quadratic and back</h1>
+                <h1>Gradient estimation for hard non-linearities</h1>
               
               
                 <hr class="small">
@@ -237,60 +237,89 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>Can a single for loop be running with quadratic time complexity?</p>
-<link rel="stylesheet" href="https://gauravaror.github.io/css/hugo-easy-gallery.css" />
-<div class="box" >
-  <figure  itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-    <div class="img">
-      <img itemprop="thumbnail" src="/linear_quad_1.png" alt="/linear_quad_1.png"/>
-    </div>
-    <a href="/linear_quad_1.png" itemprop="contentUrl"></a>
-      <figcaption><h4>What&#39;s wrong</h4>
-      </figcaption>
-  </figure>
-</div>
+        <p>The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator.</p>
+<h2 id="hard-non-linearity">Hard non-linearity</h2>
+<p>Hard non-linearities have gradient zero everywhere (e.g., step function). Following are two use cases for using hard activation functions:</p>
+<ol>
+<li>Categorial Variable</li>
+</ol>
+<blockquote>
+<p>Hard non-linearities are useful in modelling choices we encounter in our everyday life. Consider a generative neural network which can generate images for digit 1 up to 10 on request. It's challenging to backpropagate through the categorical variable.</p>
+</blockquote>
+<ol start="2">
+<li>Conditional computation or Sparse Representation</li>
+</ol>
+<blockquote>
+<p>Usecase I am exploring is to prevent backpropagation from updating certain parts of a network to avoid catastrophic forgetting of tasks learned previously. It's similar to conditional computation task proposed by Bengio [1].</p>
+</blockquote>
+<h3 id="stocastic-binary-neuron">Stocastic Binary Neuron</h3>
+<p>Stochastic binary neurons are thresholding function on the input value (a_i).
+$$
+h_i = f(a_i, z_i) = 1_{z_i &gt; sigmoid(a_i)}
+$$</p>
+<hr>
+<p>Here $z_i$ is sampled using Bernoulli for stocastic neuron. Figure below shows how the output of stocastic binary neuron looks like on whole input range of sigmoid. Between the active range of [-1,1] output is stocastic in nature.</p>
+<p><img src="/STE_sigmoid_hard_non_linearity.png" alt="Stochastic Binary Neuron"></p>
+<p>Below is the code for Stocastic Binary Neuron (Courtesy [3]: <a href="https://github.com/Wizaron/binary-stochastic-neurons/blob/master/utils.py">https://github.com/Wizaron/binary-stochastic-neurons/blob/master/utils.py</a>)</p>
+<pre><code>class Hardsigmoid(nn.Module):
 
-<p>I wrote a shell script to generate data for a test I was writing. The script goes something like this:</p>
-<h4 id="script-a">Script A</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
-<span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>seq <span style="color:#ae81ff">1</span> 6000<span style="color:#e6db74">`</span>;
-<span style="color:#66d9ef">do</span>
-data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>data<span style="color:#e6db74">}</span><span style="color:#e6db74">newdata=</span>$i<span style="color:#e6db74">&#34;</span>;
-<span style="color:#66d9ef">done</span>
-<span style="color:#75715e">##Time for this script</span>  
-<span style="color:#75715e">##./new.sh  9.01s user 0.02s system 99% cpu 9.049 total</span>
-</code></pre></div><p>It sure looks like a script which can run in O(n) time, a single for loop.
-It was bit baffled when I got review comment saying this is quadratic or O(n2) in time complexity. I initially thought it's something to do with shell!! Maybe it does some advanced representation thing and stuff.</p>
-<h4 id="script-b">Script B</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
-<span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>seq <span style="color:#ae81ff">1</span> 6000<span style="color:#e6db74">`</span>;
-<span style="color:#66d9ef">do</span>
-data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">newdata=</span>$i<span style="color:#e6db74">&#34;</span>;
-<span style="color:#66d9ef">done</span>
-<span style="color:#75715e">##Time for this script</span>  
-<span style="color:#75715e">##./new.sh  0.05s user 0.00s system 97% cpu 0.051 total</span>
-</code></pre></div><p>The script A above takes 9.01 second, whereas Script B takes 0.05 seconds.
-It's just the assignment operator which was increasing the time complexity of this script.</p>
-<p><strong>How?</strong>
-Since it has to assign whole data of string to the new variable.
-It has to traverse the whole data generated from 1 to 5999 and append data of 6000th iteration. So 6000th iteration is equivalent to generating data from the whole loop. <strong>Quadratic!!</strong></p>
-<h4 id="back-to-linear-space-we-seem-to-likethem">Back to Linear space, we seem to like them.</h4>
-<p>In advanced shells, we can just change the script to:</p>
-<h5 id="script-c">Script C</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>
-<span style="color:#66d9ef">for</span> i in <span style="color:#e6db74">`</span>seq <span style="color:#ae81ff">1</span> 6000<span style="color:#e6db74">`</span>;
-<span style="color:#66d9ef">do</span>
-data<span style="color:#f92672">+=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">newdata=</span>$i<span style="color:#e6db74">&#34;</span>;
-<span style="color:#66d9ef">done</span>
-<span style="color:#75715e">##Time for this script</span>  
-<span style="color:#75715e">##./new.sh  0.07s user 0.01s system 97% cpu 0.075 total</span>
-</code></pre></div><p>It would make it linear. But the version of shell we use for test script doesn't support append operation like Script C. Yet to figure out how to solve it.</p>
-<h4 id="just-a-reminder-to-me-think-andcode">Just a reminder to me: Think and code</h4>
-<p>It is interesting how substitution instead of <strong>append</strong> can increase performance time with the same result.</p>
-<p>These small mistakes can make your program unusable. Though our example is in the shell script, doing this mistake in other languages is possible but less probable as people are used to += operators.</p>
-<p>But the various version of bash with different features these mistakes highly probable in shell scripting.</p>
+    def __init__(self):
+        super(Hardsigmoid, self).__init__()
+        self.act = nn.Hardtanh()
+
+    def forward(self, x):
+        return (self.act(x) + 1.0) / 2.0
+
+class BernoulliFunctionST(Function):
+
+    @staticmethod
+    def forward(ctx, input):
+        return torch.bernoulli(input)
+
+    @staticmethod
+    def backward(ctx, grad_output):
+        return grad_output
+
+BernoulliST = BernoulliFunctionST.apply
+
+</code></pre><p>Getting the Above figure:</p>
+<pre><code>import torch
+from matplotlib import pyplt
+
+hard_sigmoid = HardSigmoid()
+x = torch.linspace(-3,3,10000)
+y = hard_sigmoid(x)
+y2 = BernoulliFunctionST(y)
+pyplt.subplot(2,1,1)
+pyplt.plot(x,y)
+pyplt.subplot(2,1,2)
+pyplt.plot(x,y2)
+</code></pre><h2 id="approaches-for-gradient-estimation-through-hard-non-linearities">Approaches for gradient estimation through hard non-linearities</h2>
+<p>Gradient can be estimated following four approaches compared by Bengio [1]:</p>
+<h3 id="unbiased-gradient-estimator">Unbiased Gradient Estimator</h3>
+<p>Bengio [1] proposed an unbiased gradient estimator and a centered estimator which was shown to have minimum variance.</p>
+<p>$$
+g_i = (h_i - sigm(a)).Loss
+$$</p>
+<p>We can use this unbiased gradient estimator above for backpropogation which gives us ability to switch off part of network.</p>
+<h4 id="decompose-binary-stocastic-neuron">Decompose Binary stocastic neuron</h4>
+<h4 id="stocastic-additive-or-multiplicative-noise">Stocastic additive or multiplicative noise</h4>
+<h3 id="straight-through-estimator">Straight through Estimator</h3>
+<p>Straight through Estimators just copy the gradient through non-linearity. Stocastic binary neuron would directly use gradient at output (h_i) at input (a_i).</p>
+<p>$$
+\frac{\partial L}{\partial a_i} = \frac{\partial L}{\partial h_i} * \partial sigmoid
+$$</p>
+<p>They found it's better to multiply gradient with derivative of sigmoid while copying the gradient.</p>
+<h3 id="questions">Questions</h3>
+<h3 id="references">References</h3>
+<ul>
+<li>[1] Bengio, Yoshua, Nicholas Léonard, and Aaron Courville. &ldquo;Estimating or propagating gradients through stochastic neurons for conditional computation.&rdquo; arXiv preprint arXiv:1308.3432 (2013).</li>
+<li>[ 2] Jang, Eric, Shixiang Gu, and Ben Poole. &ldquo;Categorical reparameterization with gumbel-softmax.&rdquo; arXiv preprint arXiv:1611.01144 (2016).</li>
+<li>[3] Pytorch Implementation for stocastic Neuron taken from <a href="https://github.com/Wizaron/binary-stochastic-neurons/blob/master/utils.py">github @Wizaron</a></li>
+<li>[4] <a href="https://r2rt.com/binary-stochastic-neurons-in-tensorflow.html">r2rtt.com</a> blog by <a href="https://silviupitis.com/">Silviu Pitis</a></li>
+</ul>
+<h3 id="future-work">Future Work</h3>
+<p>Include Gumble softmax trick here.</p>
 
         
 
@@ -303,13 +332,9 @@ data<span style="color:#f92672">+=</span><span style="color:#e6db74">&#34;</span
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://gauravaror.github.io/posts/first/" data-toggle="tooltip" data-placement="top" title="gdb Demystified">&larr; Previous Post</a>
+              <a href="https://gauravaror.github.io/posts/memory_networks/" data-toggle="tooltip" data-placement="top" title="Memory networks">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://gauravaror.github.io/posts/libpst/" data-toggle="tooltip" data-placement="top" title="WIP:A short tour of libpst">Next Post &rarr;</a>
-            </li>
           
         </ul>
       
