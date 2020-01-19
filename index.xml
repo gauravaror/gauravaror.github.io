@@ -6,10 +6,31 @@
     <description>Recent content on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 Dec 2019 01:12:48 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 18:11:03 +1100</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Problems</title>
+      <link>https://gauravaror.github.io/problems/</link>
+      <pubDate>Sat, 18 Jan 2020 18:11:03 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/problems/</guid>
+      <description>Trapping Rain Water Kth Largest element in an array Linked List Cycle Solution
+There are two type of solution for identifying Linked List cycle. First solution is to maintain the hash table of element seen till now and if you see an element again then you know linked list have cycles but this required O(n) space.
+Better solution is to keep two pointers one fast and one slow. Fast pointer moves two element at a list and slow moves one element at a time.</description>
+    </item>
+    
+    <item>
+      <title>Educative patterns</title>
+      <link>https://gauravaror.github.io/educative_patterns/</link>
+      <pubDate>Fri, 17 Jan 2020 20:18:52 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/educative_patterns/</guid>
+      <description>Maintaining list Inspired from list maintained by sadihassan
+Pattern : Sliding Window (07)    Title Link Code Notes     Fruits into baskets (medium) Leet github Sliding window, check at end of if condition    Pattern : Two pointers    Title Link Code Notes     Pair with Target Sum (easy) Leet github hashing solution and two pointers    Pattern : Fast and Slow pointers:    Title Link Code Notes     Linked list Cycle Leet github Fast and slow pointer and hash tables   Start of Linked list Cycle Leet github Fast and slow point approach and also hash based works works.</description>
+    </item>
     
     <item>
       <title>Gradient estimation for hard non-linearities</title>
