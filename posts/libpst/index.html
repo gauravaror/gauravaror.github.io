@@ -8,8 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   <title>WIP:A short tour of libpst - Gaurav Arora</title>
-  <meta name="description" content="The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn&#39;t a good documentation for libpst.
-This is a simple tour writing a c&#43;&#43; program from scratch to extract an email and it&#39;s attachment from .pst file using libpst."><script type="application/ld+json">
+  <meta name="description" content="The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn&rsquo;t a good documentation for libpst.
+This is a simple tour writing a c&#43;&#43; program from scratch to extract an email and it&rsquo;s attachment from .pst file using libpst."><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -57,7 +57,7 @@ This is a simple tour writing a c&#43;&#43; program from scratch to extract an e
     "name" : ""
   },
   "headline": "WIP:A short tour of libpst",
-  "description" : "The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn\x27t a good documentation for libpst. This is a simple tour writing a c\x2b\x2b program from scratch to extract an email and it\x27s attachment from .pst file using libpst.\n",
+  "description" : "The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn\x26rsquo;t a good documentation for libpst. This is a simple tour writing a c\x2b\x2b program from scratch to extract an email and it\x26rsquo;s attachment from .pst file using libpst.\n",
   "inLanguage" : "en",
   "wordCount":  244 ,
   "datePublished" : "2019-11-28T17:45:50",
@@ -79,17 +79,17 @@ This is a simple tour writing a c&#43;&#43; program from scratch to extract an e
 </script>
 
 <meta property="og:title" content="WIP:A short tour of libpst" />
-<meta property="og:description" content="The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn&#39;t a good documentation for libpst.
-This is a simple tour writing a c&#43;&#43; program from scratch to extract an email and it&#39;s attachment from .pst file using libpst.">
+<meta property="og:description" content="The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn&rsquo;t a good documentation for libpst.
+This is a simple tour writing a c&#43;&#43; program from scratch to extract an email and it&rsquo;s attachment from .pst file using libpst.">
 <meta property="og:url" content="https://gauravaror.github.io/posts/libpst/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Gaurav Arora" />
 
   <meta name="twitter:title" content="WIP:A short tour of libpst" />
-  <meta name="twitter:description" content="The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn&#39;t a good documentation for libpst.
-This is a simple tour writing …">
+  <meta name="twitter:description" content="The libpst is a library to extract text from microsoft properitery format .pst, which is used to storing emails, attachments. There isn&rsquo;t a good documentation for libpst.
+This is a simple tour …">
   <meta name="twitter:card" content="summary" />
-  <meta name="generator" content="Hugo 0.62.2" />
+  <meta name="generator" content="Hugo 0.63.1" />
   <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://gauravaror.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
@@ -240,11 +240,11 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>The <code>libpst</code> is a library to extract text from microsoft properitery format <code>.pst</code>, which is used to storing emails, attachments. There isn't a good documentation for <code>libpst</code>.
-This is a simple tour writing a <code>c++</code> program from scratch to extract an email and it's attachment from <code>.pst</code> file using <code>libpst</code>.</p>
+        <p>The <code>libpst</code> is a library to extract text from microsoft properitery format <code>.pst</code>, which is used to storing emails, attachments. There isn&rsquo;t a good documentation for <code>libpst</code>.
+This is a simple tour writing a <code>c++</code> program from scratch to extract an email and it&rsquo;s attachment from <code>.pst</code> file using <code>libpst</code>.</p>
 <p>Most of this code is taken/rewrite from command line tool <code>readpst</code> from same library.</p>
 <h3 id="library-setup">Library setup.</h3>
-<p>We will start with installing the libraries and then write a simple <code>.cpp</code> program and link it with <code>libpst</code>. Let's get started!</p>
+<p>We will start with installing the libraries and then write a simple <code>.cpp</code> program and link it with <code>libpst</code>. Let&rsquo;s get started!</p>
 <h4 id="install-the-libpst-and-libpst-dev-package">Install the <code>libpst</code> and <code>libpst-dev</code> package</h4>
 <pre><code>~&gt; sudo apt-get install libpst-dev
 </code></pre><p>First, natural question to ask is why do we need to install <code>libpst-dev</code> package and what files does it installed. It installs header files of publically exposed function from library and shared libraries with implementations.</p>
@@ -260,7 +260,7 @@ This is a simple tour writing a <code>c++</code> program from scratch to extract
 ~&gt; pkg-config --libs  libpst
 -lpst
 
-</code></pre><p>Let's consider, we have a code file <code>extract_pst.cpp</code> which we want to link <code>libpst</code>. Let's write a <code>g++</code> command which can use to compile our program.</p>
+</code></pre><p>Let&rsquo;s consider, we have a code file <code>extract_pst.cpp</code> which we want to link <code>libpst</code>. Let&rsquo;s write a <code>g++</code> command which can use to compile our program.</p>
 <pre><code>g++  extract_pst.cpp -I/usr/include/libpst-4 -lpst
 </code></pre>
 
@@ -317,7 +317,7 @@ This is a simple tour writing a <code>c++</code> program from scratch to extract
         </p>
         
         <p class="credits theme-by text-muted">
-          <a href="https://gohugo.io">Hugo v0.62.2</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          <a href="https://gohugo.io">Hugo v0.63.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
           
         </p>
       </div>

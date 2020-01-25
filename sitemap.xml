@@ -3,8 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gauravaror.github.io/posts/define/</loc>
+    <lastmod>2020-01-24T12:37:12+11:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gauravaror.github.io/</loc>
-    <lastmod>2020-01-18T18:11:03+11:00</lastmod>
+    <lastmod>2020-01-24T12:37:12+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gauravaror.github.io/posts/</loc>
+    <lastmod>2020-01-24T12:37:12+11:00</lastmod>
   </url>
   
   <url>
@@ -19,11 +29,6 @@
   
   <url>
     <loc>https://gauravaror.github.io/posts/straight_through_estimator/</loc>
-    <lastmod>2019-12-27T01:12:48+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gauravaror.github.io/posts/</loc>
     <lastmod>2019-12-27T01:12:48+11:00</lastmod>
   </url>
   
