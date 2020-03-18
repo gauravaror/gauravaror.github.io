@@ -22,6 +22,15 @@ Mean Field approximation, bits, nats&lt;/p&gt;</description>
     </item>
     
     <item>
+      <title>Attention</title>
+      <link>https://gauravaror.github.io/posts/attention/</link>
+      <pubDate>Sun, 12 Jan 2020 01:09:07 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/posts/attention/</guid>
+      <description>&lt;p&gt;Attention mechanism [1,2] improved NLP architectures by allowing them to focus on a relevant part of input/representation similar to how we humans do. While reading a text if the first and last character of a word is correct, humans can understand the text [3]. This post examines the inner working of additive and multiplicative attention, i.e. How attention mechanism converts query and hidden states into attention scores.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
       <title>Gradient estimation for hard non-linearities</title>
       <link>https://gauravaror.github.io/posts/straight_through_estimator/</link>
       <pubDate>Fri, 27 Dec 2019 01:12:48 +1100</pubDate>

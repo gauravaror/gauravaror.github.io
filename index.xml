@@ -6,7 +6,7 @@
     <description>Recent content on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jan 2020 12:37:12 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 18:11:03 +1100</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -40,6 +40,15 @@ Better solution is to keep two pointers one fast and one slow. Fast pointer move
       <guid>https://gauravaror.github.io/educative_patterns/</guid>
       <description>Maintaining list Inspired from list maintained by sadihassan
 Pattern : Sliding Window (07)    Title Link Code Notes     Fruits into baskets (medium) Leet github Sliding window, check at end of if condition    Pattern : Two pointers    Title Link Code Notes     Pair with Target Sum (easy) Leet github hashing solution and two pointers    Pattern : Fast and Slow pointers:    Title Link Code Notes     Linked list Cycle Leet github Fast and slow pointer and hash tables   Start of Linked list Cycle Leet github Fast and slow point approach and also hash based works works.</description>
+    </item>
+    
+    <item>
+      <title>Attention</title>
+      <link>https://gauravaror.github.io/posts/attention/</link>
+      <pubDate>Sun, 12 Jan 2020 01:09:07 +1100</pubDate>
+      
+      <guid>https://gauravaror.github.io/posts/attention/</guid>
+      <description>&lt;p&gt;Attention mechanism [1,2] improved NLP architectures by allowing them to focus on a relevant part of input/representation similar to how we humans do. While reading a text if the first and last character of a word is correct, humans can understand the text [3]. This post examines the inner working of additive and multiplicative attention, i.e. How attention mechanism converts query and hidden states into attention scores.&lt;/p&gt;</description>
     </item>
     
     <item>

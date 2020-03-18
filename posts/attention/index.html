@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+  <head>
+    
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Attention - Gaurav Arora</title>
+  <meta name="description" content="Attention mechanism [1,2] improved NLP architectures by allowing them to focus on a relevant part of input/representation similar to how we humans do. While reading a text if the first and last character of a word is correct, humans can understand the text [3]. This post examines the inner working of additive and multiplicative attention, i.e. How attention mechanism converts query and hidden states into attention scores."><script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "Gaurav Arora",
+    
+    "url": "https:\/\/gauravaror.github.io\/"
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "",
+  "url": "https:\/\/gauravaror.github.io\/"
+  
+  
+  
+  
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https:\/\/gauravaror.github.io\/",
+          "name": "home"
+        }
+    },{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https:\/\/gauravaror.github.io\/posts\/attention\/",
+          "name": "Attention"
+        }
+    }]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {
+    "name" : ""
+  },
+  "headline": "Attention",
+  "description" : "Attention mechanism [1,2] improved NLP architectures by allowing them to focus on a relevant part of input\/representation similar to how we humans do. While reading a text if the first and last character of a word is correct, humans can understand the text [3]. This post examines the inner working of additive and multiplicative attention, i.e. How attention mechanism converts query and hidden states into attention scores.\n",
+  "inLanguage" : "en",
+  "wordCount":  1940 ,
+  "datePublished" : "2020-01-12T01:09:07",
+  "dateModified" : "2020-01-12T01:09:07",
+  "image" : "https:\/\/gauravaror.github.io\/",
+  "keywords" : [ "" ],
+  "mainEntityOfPage" : "https:\/\/gauravaror.github.io\/posts\/attention\/",
+  "publisher" : {
+    "@type": "Organization",
+    "name" : "https:\/\/gauravaror.github.io\/",
+    "logo" : {
+        "@type" : "ImageObject",
+        "url" : "https:\/\/gauravaror.github.io\/",
+        "height" :  60 ,
+        "width" :  60
+    }
+  }
+}
+</script>
+
+<meta property="og:title" content="Attention" />
+<meta property="og:description" content="Attention mechanism [1,2] improved NLP architectures by allowing them to focus on a relevant part of input/representation similar to how we humans do. While reading a text if the first and last character of a word is correct, humans can understand the text [3]. This post examines the inner working of additive and multiplicative attention, i.e. How attention mechanism converts query and hidden states into attention scores.">
+<meta property="og:url" content="https://gauravaror.github.io/posts/attention/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Gaurav Arora" />
+
+  <meta name="twitter:title" content="Attention" />
+  <meta name="twitter:description" content="Attention mechanism [1,2] improved NLP architectures by allowing them to focus on a relevant part of input/representation similar to how we humans do. While reading a text if the first and last …">
+  <meta name="twitter:card" content="summary" />
+  <meta name="generator" content="Hugo 0.67.1" />
+  <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"><link rel="stylesheet" href="https://gauravaror.github.io/css/main.css" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" /><link rel="stylesheet" href="https://gauravaror.github.io/css/syntax.css" /><link rel="stylesheet" href="https://gauravaror.github.io/css/codeblock.css" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" integrity="sha384-h/L2W9KefUClHWaty3SLE5F/qvc4djlyR4qY3NUV5HGQBBW7stbcfff1+I/vmsHh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-153642264', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://gauravaror.github.io/">Gaurav Arora</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="About" href="/about/">About</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Xapian" href="/xapian/">Xapian</a>
+            </li>
+          
+        
+
+        
+
+        
+      </ul>
+    </div>
+
+    
+
+  </div>
+</nav>
+
+
+
+
+    
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+  <header class="header-section ">
+    
+    <div class="intro-header no-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="posts-heading">
+              
+                <h1>Attention</h1>
+              
+              
+                <hr class="small">
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+    
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>Attention mechanism [1,2] improved NLP architectures by allowing them to focus on a relevant part of input/representation similar to how we humans do. While reading a text if the first and last character of a word is correct, humans can understand the text [3]. This post examines the inner working of additive and multiplicative attention, i.e. How attention mechanism converts query and hidden states into attention scores.</p>
+<h2 id="introduction-and-motivation">Introduction and Motivation</h2>
+<p>The attention enables model to focus on the relevant part of input at a given timestamp. We humans use the attention mechanism in our daily life for pretty much everything. When trying to answer a question based on comprehension passage, we look for important sentences to answer the question similar to attention mechanism. The attention mechanism was introduced by Bahdanau[2] in sequence to sequence models used for translation. While generating translation decoder will focus on parts of input which are relevant to word being generated. It solved the issue of bottleneck of using only final state of encoder in sequence to sequence models and also resulted in model being able to handle longer sentence in translations.</p>
+<p>There are various type of attention mechanisms and a good summary is available on Lillian Weng&rsquo;s <a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html#summary">Blog</a> [3], We will only discuss additive and dot product attention and their implementations.</p>
+<h2 id="basic-components">Basic components</h2>
+<p>Three basic ingredients in attention are:</p>
+<ul>
+<li>
+<p><strong>Query</strong> : The query provides the context into what we are currently after to decide where to focus in sentence. In seq2seq model, decoder state from last time step is used as query to guide what is generated next.</p>
+</li>
+<li>
+<p><strong>Key</strong> : The key can be multiple states generated by seq2seq encoder model which will be matched with query while decoding.</p>
+</li>
+<li>
+<p><strong>Value</strong> : Value represents actual value which can be selected. This can be same as key and mostly is.</p>
+</li>
+</ul>
+<p>In most of the cases keys will refer to the multiple available states by encoder.</p>
+<h2 id="additive-attention-bahdanau">Additive Attention (Bahdanau)</h2>
+<p>Additive attention use the decoder state from last time step as query(s_t) and keys are encoder states(h_t) for the whole sequence. This mechanism adds query to each of encoder state and hence the name additive attention.</p>
+<p>This procedure in Bahdanau&rsquo;s attention mechanism is mathematically shown as
+$$
+query =  W_q.s_t
+$$
+$$
+keys = [W_k.h_i \quad i \in [1 \dotsc T]]
+$$
+$$
+scores = v_a.tanh(query + key)
+$$</p>
+<h3 id="transform-query-and-hidden-states-using-projection-layer-and-merge">Transform Query and hidden states using projection layer and merge</h3>
+<p>We first transform query and hidden state using a weight embedding (linear layer) to similar dimension. This step is important because query and hidden states might have different dimension so to compare both of them we need to transform into a similar space using projection.</p>
+<p>Define the  Sizes of input key, Query, values</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Imports</span>
+<span style="color:#f92672">import</span> torch
+<span style="color:#f92672">import</span> torch.nn <span style="color:#f92672">as</span> nn
+
+<span style="color:#75715e"># Size of hidden dimension of model.</span>
+hidden_dim <span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
+<span style="color:#75715e"># Size of encoder, considering encoder was bi-directional.</span>
+key_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>hidden_dim
+<span style="color:#75715e"># Decoder is not birectional hence not multiplied by 2.</span>
+query_size <span style="color:#f92672">=</span> hidden_dim
+value_size <span style="color:#f92672">=</span> hidden_dim
+batch_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">64</span>
+max_seq <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>
+</code></pre></div><p>Define the dummy key and query and projection layers.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## Using the dummy key, query, values</span>
+key <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>randn(batch_size, max_seq, key_size)
+query <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>randn(batch_size, query_size)
+
+<span style="color:#75715e">## Define projection layer to map key and query to same dimention</span>
+key_layer <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(key_size, hidden_dim, bias<span style="color:#f92672">=</span>False)
+query_layer <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(query_size, hidden_dim, bias<span style="color:#f92672">=</span>False)
+</code></pre></div><p>The query dimension are (batch_size, query_size) where as keys are (batch_size, max_seq, key_size). We need to expand the dimension of query to account for sequence lengths which is done using unsqueeze function.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">## torch.size([64, 128]) =&gt; torch.size([64, 1, 128])</span>
+query<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e"># We need to </span>
+<span style="color:#75715e">## Doing the actual projection on input</span>
+proj_key <span style="color:#f92672">=</span> key_layer(key)
+proj_query <span style="color:#f92672">=</span> query_layer(query) 
+
+<span style="color:#75715e"># Pass it through non-linearity</span>
+projected_input <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tanh(proj_key <span style="color:#f92672">+</span> proj_query)
+</code></pre></div><p>Above is the original implementation by Bahdanau [2] but we can also implement it by concatinating the key and query together and then passing through linear layer which is better as it allows finer-grain merging of states from query and key. Hence better matching and attention scores.
+$$
+W_a[s_t;h_i] \quad i \in [1 \dotsc T]
+$$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#75715e"># Keys shape is batch_sizeXmax_seqXhidden_dim </span>
+key <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(batch_size, max_seq, hidden_dim)
+
+proj <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>hidden_dim, hidden_dim) 
+
+<span style="color:#75715e"># Query shape is batch_sizeXhidden_dim</span>
+<span style="color:#75715e"># Add extra dimension for sequence length to query</span>
+<span style="color:#75715e"># batch_sizeXhidden_dim =&gt; batch_sizeX1Xhidden_dim</span>
+query <span style="color:#f92672">=</span> query<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e"># batch_sizeX1Xhidden_dim =&gt; batch_sizeXmax_seqXhidden_dim</span>
+query <span style="color:#f92672">=</span> query<span style="color:#f92672">.</span>expand_as(key)
+
+<span style="color:#75715e"># Concatinate Query and Keys</span>
+merged <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>cat((key, query), dim<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+<span style="color:#75715e"># Now shape of merged is batch_sizeXmax_seqX(2*hidden_dim)</span>
+
+<span style="color:#75715e"># use projection layet o project to input</span>
+projected_input <span style="color:#f92672">=</span> proj(merged)
+projected_input <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>tanh(projected_input)
+</code></pre></div><h2 id="project-down-the-merged-representation-and-calculate-attention-scores">Project down the merged representation and calculate attention scores</h2>
+<p>Above step provides us with matched representation of query from decoder and keys from encoder but this is not attention score are values between 0 and 1 reflecting the contribution of each key at current time. This is implemented using another projection referred by v_a which project down the hidden state and and then passing through softmax layer to generate probability distribution on keys.</p>
+<p>Mathematically this projects the representation further
+$$
+v_a.\mathrm{tanh}(W_a[s_t;h_i]) \quad  i \in [1 \dotsc T]
+$$</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#75715e"># Projection to lower dimension</span>
+enery_layer <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(hidden_dim, <span style="color:#ae81ff">1</span>)
+
+<span style="color:#75715e"># Output of energy is batch_sizeXmax_seqX1</span>
+energy <span style="color:#f92672">=</span> enery_layer(projected_input)
+<span style="color:#75715e"># Dimension of energy are 64X20X1</span>
+
+<span style="color:#75715e"># Since attention is probability distribution across all states.</span>
+<span style="color:#75715e"># We convert it to dimension batch_sizeX1Xmax_seq so that multiplying</span>
+<span style="color:#75715e"># attention scores to value of states gives us correct state formed after applying attention</span>
+energy <span style="color:#f92672">=</span> energy<span style="color:#f92672">.</span>squeeze(<span style="color:#ae81ff">2</span>)<span style="color:#f92672">.</span>unsqueeze(<span style="color:#ae81ff">1</span>)
+<span style="color:#75715e"># energy  is are not 64X1X20</span>
+
+<span style="color:#75715e"># Pass through softmax layer</span>
+attention_scores <span style="color:#f92672">=</span> F<span style="color:#f92672">.</span>softmax(energy, dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+<span style="color:#75715e">#alphas is still 64X1X20 but now all values sums to 1.</span>
+
+attended_state <span style="color:#f92672">=</span> attorch<span style="color:#f92672">.</span>bmm(attention_scores, values)
+<span style="color:#75715e"># attention shape is now 64X1X128</span>
+</code></pre></div><h2 id="self-attention-vaswani">Self-Attention (Vaswani)</h2>
+<p>Self attention is a multiplicative (dot-product) attention, attention scores are obtained by multiplying query and key. We will look further into how query and key are transformed to generate the attention scores.</p>
+<p>Let&rsquo;s asssume our sentence is of length 10, our attention scores should look like [10X10] matrix which define how each word in dependent on all the other words in the sentence.</p>
+<!-- raw HTML omitted -->
+<p>Self-attention contains multiple heads and scaled dot-product attention. Below we briefly explain what does multiple head mean and why scaling is needed in attention.</p>
+<h4 id="multi-head-attention">Multi-head attention.</h4>
+<p>In a sentence there might be multiple dependencies between a word and other words. Normal scaled dot-product attention procedure is repeated multiple times which provides the modle to capture multiple types of dependencies between the words. A recent paper the story of heads [6] present evidence which shows different heads have different rols of semantic and syntactic roles. To make the model computationally efficient, they internal dimension is much smaller than input and output dimension of model and following dimension was used in the paper.</p>
+<p>$$
+d_{head} = d_{key} = d_{value} = d_{query} = \frac{d_{model}}{num\_heads}
+$$</p>
+<p>This is the reason using Transformer in pytorch with model dimension which isn&rsquo;t multiple of number of heads gives following assetion.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">In [<span style="color:#ae81ff">11</span>]: torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>TransformerEncoderLayer(d_model<span style="color:#f92672">=</span><span style="color:#ae81ff">128</span>, nhead<span style="color:#f92672">=</span><span style="color:#ae81ff">9</span>)                                                                                          
+<span style="color:#a6e22e">AssertionError</span>: embed_dim must be divisible by num_heads
+</code></pre></div><h4 id="scaled-dot-product">Scaled dot-product</h4>
+<p>Dot-product attention in the paper was scaled by \(\frac{1}{\sqrt{d_{key}}}\). Attention for a singl head is calculated using following equation: $$ softmax(\frac{Q.K^T}{\sqrt{d_{key}}})$$</p>
+<p>In the paper, they observed mlarger \(d_{model}\) values make the dot-product higher resulting in very small gradient which could be the reason for additive attention to perform better than multiplicative attention.</p>
+<p>The Smaller gradient is attached to kind of probablity distribution softmax creates when the magnitude of input vector is higher. When the magnitude is higher softmax creates peaked distibution which results in most of the elements closer to zero hence resulting in smaller magnitude. The higher magnitude is result of higher variance coming from sum in dot-product attention.</p>
+<!-- raw HTML omitted -->
+<h3 id="step-by-step-multi-head-self-attention-explaination">Step by step multi-head self attention explaination</h3>
+<h4 id="step-1-use-embedding-to-generate-query-key-value-from-input">Step 1: Use Embedding to generate Query, Key, Value from input</h4>
+<p>In self-attention query and key both are same input value, where as query can be different from key as generally as it was in additive attention shown above. The Self-attention uses a linear projection to create query, key and value from input to the layer. We can either use the shared projection layer for key, query and value or different projection for each of them depending on parameter budget and need. Pytorch implementation defaults to shared projection layer.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3"><span style="color:#75715e"># Import torch</span>
+<span style="color:#f92672">import</span> torch
+
+<span style="color:#75715e"># initalize model dimension and heads for transformers</span>
+d_model <span style="color:#f92672">=</span> <span style="color:#ae81ff">1024</span>
+num_heads <span style="color:#f92672">=</span> <span style="color:#ae81ff">8</span>
+d_head <span style="color:#f92672">=</span> d_model<span style="color:#f92672">//</span><span style="color:#ae81ff">8</span>
+
+batch_size <span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
+seq_len <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>
+inp <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(batch_size, seq_len, d_model)
+
+<span style="color:#75715e"># Define the projection query, key and value.</span>
+<span style="color:#75715e"># Since internal dimension is each head is d_head</span>
+<span style="color:#75715e"># we should have `num_head` projection laters and then concatinate.</span>
+<span style="color:#75715e"># Defining it like this achieves similar results</span>
+<span style="color:#75715e"># and is computationally efficient and convinent.</span>
+proj_query <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Linear(d_model, d_model)
+proj_key <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Linear(d_model, d_model)
+proj_value <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Linear(d_model, d_model)
+
+<span style="color:#75715e"># Do the actual projection to create query, value and key.</span>
+Query <span style="color:#f92672">=</span> proj_query(inp)
+<span style="color:#75715e"># Query dimension is torch.Size([128, 10, 1024]) == [batch_size, seq_len, inp]</span>
+Key <span style="color:#f92672">=</span> proj_key(inp)
+Value <span style="color:#f92672">=</span> proj_value(inp)
+</code></pre></div><h4 id="step-2-rearrange-tensors-to-accound-for-multiple-heads">Step 2: Rearrange tensors to accound for multiple heads.</h4>
+<p>Following the creation of query, we need to account for multiple heads used by transformers attention. Query we created in last step contains input for all the heads as dim_head is \(\frac{d_{model}}{num\_heads}\). We have to rearrange the tensor so that heads are broken from last dimension and move to dimension before seq_len so that parallel computation is performed for each of the head while doing matrix multiplication.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">
+<span style="color:#75715e"># Transform the heads out of last dimension and merge them to batch</span>
+Query <span style="color:#f92672">=</span> Query<span style="color:#f92672">.</span>contiguous()<span style="color:#f92672">.</span>view(seq_len, batch_size<span style="color:#f92672">*</span>num_heads, d_head)
+<span style="color:#75715e"># Query dimension is [10, 128*8, 128] = [seq_len, batch_size*num_heads, d_head]</span>
+Query <span style="color:#f92672">=</span> Query<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
+<span style="color:#75715e"># Query dimension now is [1024, 10, 128] == [batch_size*num_heads, seq_len, d_head]</span>
+<span style="color:#75715e"># This enables parallel processing of num_heads as those goes into batch dimension while</span>
+<span style="color:#75715e"># doing the tensor multiplication.</span>
+
+<span style="color:#75715e"># Similar transformation is done for Key and Vaue</span>
+Key <span style="color:#f92672">=</span> Key<span style="color:#f92672">.</span>contiguous()<span style="color:#f92672">.</span>view(seq_len, batch_size<span style="color:#f92672">*</span>num_heads, d_head)
+Key <span style="color:#f92672">=</span> Key<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
+Value <span style="color:#f92672">=</span> Value<span style="color:#f92672">.</span>contiguous()<span style="color:#f92672">.</span>view(seq_len, batch_size<span style="color:#f92672">*</span>num_heads, d_head)
+Value <span style="color:#f92672">=</span> Value<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>)
+
+</code></pre></div><h4 id="step-3-generate-scaled-attention-scores">Step 3: Generate scaled attention scores</h4>
+<p>Generating attention scores corresponds to scoring how each word is depenedent on all the other words and output would look like a matrix of torch.Size([Seq_len, Seq_len]). We transpose Key from \([Seq\_lenXd\_head]\) to \([d\_headXSeq\_len]\). This is transposing the Key vector and helps us generate and capture the interaction between each word in query to each word with every other word. This is most important part and generates the attention score which after passing through softmax is referred to as self-attention.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">Key <span style="color:#f92672">=</span> Key<span style="color:#f92672">.</span>transpose(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)
+<span style="color:#75715e"># Dimension of Key now is [batch_size*num_heads, d_head, seq_len]</span>
+
+softmax <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Softmax(dim<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>)
+Raw_Attention <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>bmm(Query, Key)
+attention_score <span style="color:#f92672">=</span> softmax(Raw_Attention)
+</code></pre></div><h4 id="step-4-preparing-final-output-preperation-from-multi-head-attention">Step 4: Preparing final output preperation from multi-head attention</h4>
+<p>Multiplying attention score to value generates the raw output from each of the heads which passed through a linear output projection layer and rearranged to generate final output from multi-head self-attention module, output dimension is similar to input dimension.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python3" data-lang="python3">
+<span style="color:#75715e"># Generates the output value by multiplying attention scores to value</span>
+raw_output <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>bmm(attention_scores, Value)
+<span style="color:#75715e"># raw_output dimensions are [1024, 10, 128] = [batch_size*num_heads, seq_len, d_head]</span>
+
+<span style="color:#75715e"># Define output projection layer which projects the output back to input dimension of layer</span>
+output_proj <span style="color:#f92672">=</span> nn<span style="color:#f92672">.</span>Linear(d_model, d_model)
+
+<span style="color:#75715e"># Rearrange the heads to be concatinated back</span>
+raw_output <span style="color:#f92672">=</span> raw_output<span style="color:#f92672">.</span>contiguous()<span style="color:#f92672">.</span>view(batch_size, seq_len, d_model)
+<span style="color:#75715e"># raw_dimension dimension now is [128, 10, 1024]</span>
+
+<span style="color:#75715e"># Project the raw output which is output from the single multi-head attention module.</span>
+output <span style="color:#f92672">=</span> output_proj(raw_output)
+
+</code></pre></div><p>This conclude introduction to multiplication (dot product) attention.</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li>[1] Vaswani, Ashish, et al. &ldquo;Attention is all you need.&rdquo; Advances in neural information processing systems. 2017.</li>
+<li>[2] Bahdanau, Dzmitry, Kyunghyun Cho, and Yoshua Bengio. &ldquo;Neural machine translation by jointly learning to align and translate.&rdquo; arXiv preprint arXiv:1409.0473 (2014).</li>
+<li>[3] <a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html">https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html</a></li>
+<li>[4] <a href="https://www.foxnews.com/story/if-you-can-raed-tihs-you-msut-be-raelly-smrat">https://www.foxnews.com/story/if-you-can-raed-tihs-you-msut-be-raelly-smrat</a></li>
+<li>[5] [Annotated Attention] (<a href="https://nlp.seas.harvard.edu/2018/04/03/attention.html#attention">https://nlp.seas.harvard.edu/2018/04/03/attention.html#attention</a>)</li>
+<li>[6] <a href="https://lena-voita.github.io/posts/acl19_heads.html">The Story of Heads</a></li>
+</ul>
+
+        
+
+        
+
+        
+      </article>
+
+      
+        <ul class="pager blog-pager">
+          
+            <li class="previous">
+              <a href="https://gauravaror.github.io/posts/straight_through_estimator/" data-toggle="tooltip" data-placement="top" title="Gradient estimation for hard non-linearities">&larr; Previous Post</a>
+            </li>
+          
+          
+            <li class="next">
+              <a href="https://gauravaror.github.io/posts/define/" data-toggle="tooltip" data-placement="top" title="Define">Next Post &rarr;</a>
+            </li>
+          
+        </ul>
+      
+
+
+      
+
+    </div>
+  </div>
+</div>
+
+      
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+        </ul>
+        <p class="credits copyright text-muted">
+          
+
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2020
+          
+
+          
+            &nbsp;&bull;&nbsp;
+            <a href="https://gauravaror.github.io/">Gaurav Arora</a>
+          
+        </p>
+        
+        <p class="credits theme-by text-muted">
+          <a href="https://gohugo.io">Hugo v0.67.1</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> adapted from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>
+          
+        </p>
+      </div>
+    </div>
+  </div>
+</footer><script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://gauravaror.github.io/js/main.js"></script><script> renderMathInElement(document.body); </script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" integrity="sha384-QELNnmcmU8IR9ZAykt67vGr9/rZJdHbiWi64V88fCPaOohUlHCqUD/unNN0BXSqy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" integrity="sha384-m67o7SkQ1ALzKZIFh4CiTA8tmadaujiTa9Vu+nqPSwDOqHrDmxLezTdFln8077+q" crossorigin="anonymous"></script><script src="https://gauravaror.github.io/js/load-photoswipe.js"></script>
+
+
+
+
+
+
+
+
+
+    
+  </body>
+</html>
+
