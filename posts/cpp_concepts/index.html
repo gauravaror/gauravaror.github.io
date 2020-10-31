@@ -7,8 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Segment_trees - Gaurav Arora</title>
-  <meta name="description" content="Segment Trees Definition Segment tree is used for querying a property over a range of intervals. They are most efficient when you want to want to do repeated range queries. Let make the concept a bit concrete. Let&#39;s consider an array with 10 numbers in it. Our task is to find a minimum in an interval, such as get the index of minimum element in range (2,10). ``` List of numbers: [1,19,3,5,6,3,2,44,22] Task: find minumum number between index 3-9 i."><script type="application/ld+json">
+  <title>Cpp concepts - Gaurav Arora</title>
+  <meta name="description" content="My attempt to explain some c&#43;&#43; concept after learning them. Currently, the following concepts are explained:
+
+explicit
+static
+"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -43,8 +47,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/gauravaror.github.io\/posts\/segment_trees\/",
-          "name": "Segment trees"
+          "@id": "https:\/\/gauravaror.github.io\/posts\/cpp_concepts\/",
+          "name": "Cpp concepts"
         }
     }]
 }
@@ -55,15 +59,15 @@
   "author": {
     "name" : ""
   },
-  "headline": "Segment_trees",
-  "description" : "Segment Trees Definition Segment tree is used for querying a property over a range of intervals. They are most efficient when you want to want to do repeated range queries. Let make the concept a bit concrete. Let\u0027s consider an array with 10 numbers in it. Our task is to find a minimum in an interval, such as get the index of minimum element in range (2,10). ``` List of numbers: [1,19,3,5,6,3,2,44,22] Task: find minumum number between index 3-9 i.",
+  "headline": "Cpp concepts",
+  "description" : "My attempt to explain some c\u002b\u002b concept after learning them. Currently, the following concepts are explained:\n explicit static ",
   "inLanguage" : "en",
-  "wordCount":  303 ,
-  "datePublished" : "2020-10-31T17:04:43",
-  "dateModified" : "2020-10-31T17:04:43",
+  "wordCount":  331 ,
+  "datePublished" : "2020-04-30T11:10:25",
+  "dateModified" : "2020-04-30T11:10:25",
   "image" : "https:\/\/gauravaror.github.io\/",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/gauravaror.github.io\/posts\/segment_trees\/",
+  "mainEntityOfPage" : "https:\/\/gauravaror.github.io\/posts\/cpp_concepts\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/gauravaror.github.io\/",
@@ -77,14 +81,22 @@
 }
 </script>
 
-<meta property="og:title" content="Segment_trees" />
-<meta property="og:description" content="Segment Trees Definition Segment tree is used for querying a property over a range of intervals. They are most efficient when you want to want to do repeated range queries. Let make the concept a bit concrete. Let&#39;s consider an array with 10 numbers in it. Our task is to find a minimum in an interval, such as get the index of minimum element in range (2,10). ``` List of numbers: [1,19,3,5,6,3,2,44,22] Task: find minumum number between index 3-9 i.">
-<meta property="og:url" content="https://gauravaror.github.io/posts/segment_trees/" />
+<meta property="og:title" content="Cpp concepts" />
+<meta property="og:description" content="My attempt to explain some c&#43;&#43; concept after learning them. Currently, the following concepts are explained:
+
+explicit
+static
+">
+<meta property="og:url" content="https://gauravaror.github.io/posts/cpp_concepts/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Gaurav Arora" />
 
-  <meta name="twitter:title" content="Segment_trees" />
-  <meta name="twitter:description" content="Segment Trees Definition Segment tree is used for querying a property over a range of intervals. They are most efficient when you want to want to do repeated range queries. Let make the concept a bit …">
+  <meta name="twitter:title" content="Cpp concepts" />
+  <meta name="twitter:description" content="My attempt to explain some c&#43;&#43; concept after learning them. Currently, the following concepts are explained:
+
+explicit
+static
+">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.74.3" />
   <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -229,7 +241,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Segment_trees</h1>
+                <h1>Cpp concepts</h1>
               
               
                 <hr class="small">
@@ -249,36 +261,28 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h1 id="segment-trees">Segment Trees</h1>
-<h2 id="definition">Definition</h2>
-<pre><code>Segment tree is used for querying a property over a range of intervals. They are most efficient when you want to want to do repeated range queries. Let make the concept a bit concrete.
-
-Let's consider an array with 10 numbers in it. Our task is to find a minimum in an interval, such as get the index of minimum element in range (2,10).
-
-```
-List of numbers: [1,19,3,5,6,3,2,44,22]
-Task: find minumum number between index 3-9 i.e find minumum in [3,5,6,3,2,44,22,3]
-Answer: 2
-```
-A naive approach is to just iterate the array from index 3 to 9 and pick the minimum. Which works fine when the size of the array is small or we only need to do a single query. If we have an array of size 10,000 and we want to do 50 such queries: Then you might feel this method is very slow as each query is taking O(n) time.
-
-We can decrease the time to query from O(n) to O(log(n)) by using segment trees.
-
-It essentially pre-computes the result from some intervals while building the tree i.e in the stage when we are inserting the items in Segment tree. Which leads to saving some space and compute while during the time of querying.
-
-They are very similar to dyadic intervals. Is it the same thing??
-</code></pre>
-<h2 id="ways-to-implement-segment-tree">Ways to implement Segment tree</h2>
-<pre><code>There is primarily two way to implement a segment tree.
-
-1. Using an Array. Generally, segment trees take maximum space of
-   4n
-
-2. We can also implement segment trees using Node and tree structure.
-</code></pre>
-<p>Segment trees are easier to create maintain and update using a recursive algorithm, mainly because it&rsquo;s a tree.</p>
-<p>We are basically precomputing the result while the creation of the tree since we know which query or property we are interested in.</p>
-
+        <p>My attempt to explain some c++ concept after learning them. Currently, the following concepts are explained:</p>
+<ul>
+<li>explicit</li>
+<li>static</li>
+</ul>
+<h1 id="explicit">explicit</h1>
+<p><a href="https://stackoverflow.com/questions/121162/what-does-the-explicit-keyword-mean">https://stackoverflow.com/questions/121162/what-does-the-explicit-keyword-mean</a>
+This describe with interesting example when to use explicit.</p>
+<h1 id="static">static</h1>
+<p>When using a variable just inside a single cpp file, we should declare the variable as static.</p>
+<p>@my description
+Using static function in a file descibe variable as internal linkage</p>
+<p><a href="https://docs.microsoft.com/en-us/cpp/cpp/storage-classes-cpp?view=vs-2019#static">https://docs.microsoft.com/en-us/cpp/cpp/storage-classes-cpp?view=vs-2019#static</a>
+We seem to define the internal linkage for this variable which is true but if we don&rsquo;t define it as static, is there chances for it to get exposed externally?
+I following about using static in this situation here (<a href="https://stackoverflow.com/a/52511865/328897):">https://stackoverflow.com/a/52511865/328897):</a>
+All variables declared at file scope should be declared static, for the purpose of private encapsulation and to reduce namespace clutter.
+Each translation unit gets its own copy of the static variable, but here omega.cc is the entry point.</p>
+<p>@Olly Betts (Xapian):
+Yeah, that&rsquo;s about right.  More specifically:
+It&rsquo;s useful to the compiler as it then knows that the variable can only be used by code in this file (unless a pointer or reference is passed to a function defined in another file) and it can often optimise better knowing that.
+It avoids problems if two different files have their own variable with the same name which is intended to be private.  If they are marked static then they really are different variables.  If they aren&rsquo;t then the two end up being linked together, which can result in undefined behaviour (e.g. if the two variables actually have different types - you may get a linker error for that, but not with all compilers).  We actually had a bug in xapian-core not long ago due to this, though that was for inline functions with the same name in different source files.
+It&rsquo;s also a clear way to document to people reading the code that the variable is only used in this file (and in a way that you can be sure that&rsquo;s genuinely the case, since the code wouldn&rsquo;t compile otherwise).</p>
 
         
 
@@ -291,9 +295,13 @@ They are very similar to dyadic intervals. Is it the same thing??
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://gauravaror.github.io/posts/python_concepts/" data-toggle="tooltip" data-placement="top" title="Python Concepts">&larr; Previous Post</a>
+              <a href="https://gauravaror.github.io/posts/attention/" data-toggle="tooltip" data-placement="top" title="Attention">&larr; Previous Post</a>
             </li>
           
+          
+            <li class="next">
+              <a href="https://gauravaror.github.io/posts/python_concepts/" data-toggle="tooltip" data-placement="top" title="Python Concepts">Next Post &rarr;</a>
+            </li>
           
         </ul>
       

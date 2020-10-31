@@ -7,9 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Python_concepts - Gaurav Arora</title>
-  <meta name="description" content="Python Concept: One day at a time Python dunder methods Python functions which start with a double underscore are known as dunder &ndash; du(double) under(underscore) functions. They are majorly used for overriding the functionality of class in python (think OOPs).
-If you define a new class. When you try printing this class instance, python prints a cryptic string which contains the name of the class and its memory address. You can implement __repr__ function to define how it should be printed."><script type="application/ld+json">
+  <title>Python Concepts - Gaurav Arora</title>
+  <meta name="description" content="My attempt to explain some python concept after learning them. Currently, the following concepts are explained:
+
+Python dunder methods
+Class variables
+"><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -56,10 +59,10 @@ If you define a new class. When you try printing this class instance, python pri
   "author": {
     "name" : ""
   },
-  "headline": "Python_concepts",
-  "description" : "Python Concept: One day at a time Python dunder methods Python functions which start with a double underscore are known as dunder \u0026ndash; du(double) under(underscore) functions. They are majorly used for overriding the functionality of class in python (think OOPs).\nIf you define a new class. When you try printing this class instance, python prints a cryptic string which contains the name of the class and its memory address. You can implement __repr__ function to define how it should be printed.",
+  "headline": "Python Concepts",
+  "description" : "My attempt to explain some python concept after learning them. Currently, the following concepts are explained:\n Python dunder methods Class variables ",
   "inLanguage" : "en",
-  "wordCount":  261 ,
+  "wordCount":  282 ,
   "datePublished" : "2020-10-31T16:51:02",
   "dateModified" : "2020-10-31T16:51:02",
   "image" : "https:\/\/gauravaror.github.io\/",
@@ -78,15 +81,22 @@ If you define a new class. When you try printing this class instance, python pri
 }
 </script>
 
-<meta property="og:title" content="Python_concepts" />
-<meta property="og:description" content="Python Concept: One day at a time Python dunder methods Python functions which start with a double underscore are known as dunder &ndash; du(double) under(underscore) functions. They are majorly used for overriding the functionality of class in python (think OOPs).
-If you define a new class. When you try printing this class instance, python prints a cryptic string which contains the name of the class and its memory address. You can implement __repr__ function to define how it should be printed.">
+<meta property="og:title" content="Python Concepts" />
+<meta property="og:description" content="My attempt to explain some python concept after learning them. Currently, the following concepts are explained:
+
+Python dunder methods
+Class variables
+">
 <meta property="og:url" content="https://gauravaror.github.io/posts/python_concepts/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Gaurav Arora" />
 
-  <meta name="twitter:title" content="Python_concepts" />
-  <meta name="twitter:description" content="Python Concept: One day at a time Python dunder methods Python functions which start with a double underscore are known as dunder &ndash; du(double) under(underscore) functions. They are majorly used …">
+  <meta name="twitter:title" content="Python Concepts" />
+  <meta name="twitter:description" content="My attempt to explain some python concept after learning them. Currently, the following concepts are explained:
+
+Python dunder methods
+Class variables
+">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.74.3" />
   <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -231,7 +241,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Python_concepts</h1>
+                <h1>Python Concepts</h1>
               
               
                 <hr class="small">
@@ -251,12 +261,17 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <h1 id="python-concept-one-day-at-a-time">Python Concept: One day at a time</h1>
+        <p>My attempt to explain some python concept after learning them. Currently, the following concepts are explained:</p>
+<ul>
+<li>Python dunder methods</li>
+<li>Class variables</li>
+</ul>
+<h1 id="python-concept-one-day-at-a-time">Python Concept: One day at a time</h1>
 <h2 id="python-dunder-methods">Python dunder methods</h2>
 <p>Python functions which start with a double underscore are known as dunder &ndash; du(double) under(underscore) functions. They are majorly used for overriding the functionality of class in python (think OOPs).</p>
 <p>If you define a new class. When you try printing this class instance, python prints a cryptic string which contains the name of the class and its memory address. You can implement <code>__repr__</code> function to define how it should be printed.</p>
 <p>You can also implement <code>__add__</code> to define the behaviour how adding something to the object should work.</p>
-<h2 id="class-objects">Class Objects</h2>
+<h2 id="class-variables">Class Variables</h2>
 <p>A variable which is defined directly inside the class is called a class variable. You can access them via <code>self</code>.</p>
 <pre><code>class NLP:
     taste = &quot;sweet&quot;
@@ -272,7 +287,6 @@ Out[7]: ['spacy', 'nltk']
 <p>Just wondering this could be a desirable behaviour as well. In this case, because this could enable sharing knowledge of available tools across different instances. In all, mutable objects as class variables should be used with caution.</p>
 <p>Detailed description: <a href="https://docs.python.org/3/tutorial/classes.html">Python tutorial on Classes</a></p>
 
-
         
 
         
@@ -284,7 +298,7 @@ Out[7]: ['spacy', 'nltk']
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://gauravaror.github.io/posts/attention/" data-toggle="tooltip" data-placement="top" title="Attention">&larr; Previous Post</a>
+              <a href="https://gauravaror.github.io/posts/cpp_concepts/" data-toggle="tooltip" data-placement="top" title="Cpp concepts">&larr; Previous Post</a>
             </li>
           
           
