@@ -3,6 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gauravaror.github.io/</loc>
+    <lastmod>2020-10-31T17:04:43+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gauravaror.github.io/posts/</loc>
+    <lastmod>2020-10-31T17:04:43+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gauravaror.github.io/posts/segment_trees/</loc>
+    <lastmod>2020-10-31T17:04:43+11:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gauravaror.github.io/posts/python_concepts/</loc>
+    <lastmod>2020-10-31T16:51:02+11:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gauravaror.github.io/problems/</loc>
     <lastmod>2020-01-18T18:11:03+11:00</lastmod>
   </url>
@@ -14,16 +34,6 @@
   
   <url>
     <loc>https://gauravaror.github.io/posts/attention/</loc>
-    <lastmod>2020-01-12T01:09:07+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gauravaror.github.io/</loc>
-    <lastmod>2020-01-12T01:09:07+11:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gauravaror.github.io/posts/</loc>
     <lastmod>2020-01-12T01:09:07+11:00</lastmod>
   </url>
   
