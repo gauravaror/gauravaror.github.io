@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Gaurav Arora</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 31 Oct 2020 17:04:43 +1100</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jun 2021 01:35:37 +1000</lastBuildDate>
     
 	<atom:link href="https://gauravaror.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Daily Notes</title>
+      <link>https://gauravaror.github.io/posts/daily_note/</link>
+      <pubDate>Mon, 07 Jun 2021 01:35:37 +1000</pubDate>
+      
+      <guid>https://gauravaror.github.io/posts/daily_note/</guid>
+      <description>6th June 2021  Implemented regression model using transformers for commonlit readability challenge, which isn&amp;rsquo;t working. Copied code from notebook, which is able to train well. Will try to debug my implementation. Learned about with and context managers in python. with statements are pretty cool ad useful construct. Read more about it on realpython Participated in Weekly leetcode contest, got a really bad rank and got stuck in question with circular array.</description>
+    </item>
     
     <item>
       <title>Segment Trees</title>

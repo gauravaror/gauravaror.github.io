@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Gradient estimation for hard non-linearities - Gaurav Arora</title>
-  <meta name="description" content="The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator."><script type="application/ld+json">
+  <title>Daily Notes - Gaurav Arora</title>
+  <meta name="description" content="6th June 2021  Implemented regression model using transformers for commonlit readability challenge, which isn&rsquo;t working. Copied code from notebook, which is able to train well. Will try to debug my implementation. Learned about with and context managers in python. with statements are pretty cool ad useful construct. Read more about it on realpython Participated in Weekly leetcode contest, got a really bad rank and got stuck in question with circular array."><script type="application/ld+json">
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
@@ -43,8 +43,8 @@
         "@type": "ListItem",
         "position": 3,
         "item": {
-          "@id": "https:\/\/gauravaror.github.io\/posts\/straight_through_estimator\/",
-          "name": "Gradient estimation for hard non linearities"
+          "@id": "https:\/\/gauravaror.github.io\/posts\/daily_note\/",
+          "name": "Daily notes"
         }
     }]
 }
@@ -55,15 +55,15 @@
   "author": {
     "name" : ""
   },
-  "headline": "Gradient estimation for hard non-linearities",
-  "description" : "The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator.\n",
+  "headline": "Daily Notes",
+  "description" : "6th June 2021  Implemented regression model using transformers for commonlit readability challenge, which isn\u0026rsquo;t working. Copied code from notebook, which is able to train well. Will try to debug my implementation. Learned about with and context managers in python. with statements are pretty cool ad useful construct. Read more about it on realpython Participated in Weekly leetcode contest, got a really bad rank and got stuck in question with circular array.",
   "inLanguage" : "en",
-  "wordCount":  470 ,
-  "datePublished" : "2019-12-27T01:12:48",
-  "dateModified" : "2019-12-27T01:12:48",
+  "wordCount":  79 ,
+  "datePublished" : "2021-06-07T01:35:37",
+  "dateModified" : "2021-06-07T01:35:37",
   "image" : "https:\/\/gauravaror.github.io\/",
   "keywords" : [ "" ],
-  "mainEntityOfPage" : "https:\/\/gauravaror.github.io\/posts\/straight_through_estimator\/",
+  "mainEntityOfPage" : "https:\/\/gauravaror.github.io\/posts\/daily_note\/",
   "publisher" : {
     "@type": "Organization",
     "name" : "https:\/\/gauravaror.github.io\/",
@@ -77,14 +77,14 @@
 }
 </script>
 
-<meta property="og:title" content="Gradient estimation for hard non-linearities" />
-<meta property="og:description" content="The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator.">
-<meta property="og:url" content="https://gauravaror.github.io/posts/straight_through_estimator/" />
+<meta property="og:title" content="Daily Notes" />
+<meta property="og:description" content="6th June 2021  Implemented regression model using transformers for commonlit readability challenge, which isn&rsquo;t working. Copied code from notebook, which is able to train well. Will try to debug my implementation. Learned about with and context managers in python. with statements are pretty cool ad useful construct. Read more about it on realpython Participated in Weekly leetcode contest, got a really bad rank and got stuck in question with circular array.">
+<meta property="og:url" content="https://gauravaror.github.io/posts/daily_note/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Gaurav Arora" />
 
-  <meta name="twitter:title" content="Gradient estimation for hard non-linearities" />
-  <meta name="twitter:description" content="The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in …">
+  <meta name="twitter:title" content="Daily Notes" />
+  <meta name="twitter:description" content="6th June 2021  Implemented regression model using transformers for commonlit readability challenge, which isn&rsquo;t working. Copied code from notebook, which is able to train well. Will try to debug …">
   <meta name="twitter:card" content="summary" />
   <meta name="generator" content="Hugo 0.74.3" />
   <link rel="alternate" href="https://gauravaror.github.io/index.xml" type="application/rss+xml" title="Gaurav Arora"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
@@ -229,7 +229,7 @@ if (!doNotTrack) {
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             <div class="posts-heading">
               
-                <h1>Gradient estimation for hard non-linearities</h1>
+                <h1>Daily Notes</h1>
               
               
                 <hr class="small">
@@ -249,89 +249,17 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>The hard non-linearities such as step functions are useful for modelling a categorical variable in neural networks. The gradient is zero everywhere for hard activations, which leads to difficulty in training using backpropagation. We review some technique proposed to estimate gradient such as straight through estimator.</p>
-<h2 id="hard-non-linearity">Hard non-linearity</h2>
-<p>Hard non-linearities have gradient zero everywhere (e.g., step function). Following are two use cases for using hard activation functions:</p>
-<ol>
-<li>Categorial Variable</li>
-</ol>
-<blockquote>
-<p>Hard non-linearities are useful in modelling choices we encounter in our everyday life. Consider a generative neural network which can generate images for digit 1 up to 10 on request. It&rsquo;s challenging to backpropagate through the categorical variable.</p>
-</blockquote>
-<ol start="2">
-<li>Conditional computation or Sparse Representation</li>
-</ol>
-<blockquote>
-<p>Usecase I am exploring is to prevent backpropagation from updating certain parts of a network to avoid catastrophic forgetting of tasks learned previously. It&rsquo;s similar to conditional computation task proposed by Bengio [1].</p>
-</blockquote>
-<h3 id="stocastic-binary-neuron">Stocastic Binary Neuron</h3>
-<p>Stochastic binary neurons are thresholding function on the input value (a_i).
-$$
-h_i = f(a_i, z_i) = 1_{z_i &gt; sigmoid(a_i)}
-$$</p>
-<hr>
-<p>Here $z_i$ is sampled using Bernoulli for stocastic neuron. Figure below shows how the output of stocastic binary neuron looks like on whole input range of sigmoid. Between the active range of [-1,1] output is stocastic in nature.</p>
-<p><img src="/STE_sigmoid_hard_non_linearity.png" alt="Stochastic Binary Neuron"></p>
-<p>Below is the code for Stocastic Binary Neuron (Courtesy [3]: <a href="https://github.com/Wizaron/binary-stochastic-neurons/blob/master/utils.py">https://github.com/Wizaron/binary-stochastic-neurons/blob/master/utils.py</a>)</p>
-<pre><code>class Hardsigmoid(nn.Module):
-
-    def __init__(self):
-        super(Hardsigmoid, self).__init__()
-        self.act = nn.Hardtanh()
-
-    def forward(self, x):
-        return (self.act(x) + 1.0) / 2.0
-
-class BernoulliFunctionST(Function):
-
-    @staticmethod
-    def forward(ctx, input):
-        return torch.bernoulli(input)
-
-    @staticmethod
-    def backward(ctx, grad_output):
-        return grad_output
-
-BernoulliST = BernoulliFunctionST.apply
-
-</code></pre><p>Getting the Above figure:</p>
-<pre><code>import torch
-from matplotlib import pyplt
-
-hard_sigmoid = HardSigmoid()
-x = torch.linspace(-3,3,10000)
-y = hard_sigmoid(x)
-y2 = BernoulliFunctionST(y)
-pyplt.subplot(2,1,1)
-pyplt.plot(x,y)
-pyplt.subplot(2,1,2)
-pyplt.plot(x,y2)
-</code></pre><h2 id="approaches-for-gradient-estimation-through-hard-non-linearities">Approaches for gradient estimation through hard non-linearities</h2>
-<p>Gradient can be estimated following four approaches compared by Bengio [1]:</p>
-<h3 id="unbiased-gradient-estimator">Unbiased Gradient Estimator</h3>
-<p>Bengio [1] proposed an unbiased gradient estimator and a centered estimator which was shown to have minimum variance.</p>
-<p>$$
-g_i = (h_i - sigm(a)).Loss
-$$</p>
-<p>We can use this unbiased gradient estimator above for backpropogation which gives us ability to switch off part of network.</p>
-<h4 id="decompose-binary-stocastic-neuron">Decompose Binary stocastic neuron</h4>
-<h4 id="stocastic-additive-or-multiplicative-noise">Stocastic additive or multiplicative noise</h4>
-<h3 id="straight-through-estimator">Straight through Estimator</h3>
-<p>Straight through Estimators just copy the gradient through non-linearity. Stocastic binary neuron would directly use gradient at output (h_i) at input (a_i).</p>
-<p>$$
-\frac{\partial L}{\partial a_i} = \frac{\partial L}{\partial h_i} * \partial sigmoid
-$$</p>
-<p>They found it&rsquo;s better to multiply gradient with derivative of sigmoid while copying the gradient.</p>
-<h3 id="questions">Questions</h3>
-<h3 id="references">References</h3>
+        <h1 id="6th-june-2021">6th June 2021</h1>
 <ul>
-<li>[1] Bengio, Yoshua, Nicholas Léonard, and Aaron Courville. &ldquo;Estimating or propagating gradients through stochastic neurons for conditional computation.&rdquo; arXiv preprint arXiv:1308.3432 (2013).</li>
-<li>[ 2] Jang, Eric, Shixiang Gu, and Ben Poole. &ldquo;Categorical reparameterization with gumbel-softmax.&rdquo; arXiv preprint arXiv:1611.01144 (2016).</li>
-<li>[3] Pytorch Implementation for stocastic Neuron taken from <a href="https://github.com/Wizaron/binary-stochastic-neurons/blob/master/utils.py">github @Wizaron</a></li>
-<li>[4] <a href="https://r2rt.com/binary-stochastic-neurons-in-tensorflow.html">r2rtt.com</a> blog by <a href="https://silviupitis.com/">Silviu Pitis</a></li>
+<li>Implemented regression model using transformers for commonlit readability challenge, which isn&rsquo;t working. Copied code from <a href="https://www.kaggle.com/rhtsingh/speeding-up-transformer-w-optimization-strategies">notebook</a>, which is able to train well. Will try to debug my implementation.</li>
+<li>Learned about <em>with</em> and context managers in python. <em>with</em> statements are pretty cool ad useful construct. Read more about it on <a href="https://realpython.com/python-with-statement/">realpython</a></li>
+<li>Participated in Weekly leetcode contest, got a really bad rank and got stuck in question with circular array.</li>
 </ul>
-<h3 id="future-work">Future Work</h3>
-<p>Include Gumble softmax trick here.</p>
+<h1 id="5th-june-2021">5th June 2021</h1>
+<ul>
+<li>Read through veru interesting <a href="https://www.kaggle.com/rhtsingh/speeding-up-transformer-w-optimization-strategies">Notebook</a></li>
+</ul>
+
 
         
 
@@ -344,13 +272,9 @@ $$</p>
         <ul class="pager blog-pager">
           
             <li class="previous">
-              <a href="https://gauravaror.github.io/posts/memory_networks/" data-toggle="tooltip" data-placement="top" title="Memory networks">&larr; Previous Post</a>
+              <a href="https://gauravaror.github.io/posts/segment_trees/" data-toggle="tooltip" data-placement="top" title="Segment Trees">&larr; Previous Post</a>
             </li>
           
-          
-            <li class="next">
-              <a href="https://gauravaror.github.io/posts/attention/" data-toggle="tooltip" data-placement="top" title="Attention">Next Post &rarr;</a>
-            </li>
           
         </ul>
       

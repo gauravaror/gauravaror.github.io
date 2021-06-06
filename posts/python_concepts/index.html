@@ -62,7 +62,7 @@ Class variables
   "headline": "Python Concepts",
   "description" : "My attempt to explain some python concept after learning them. Currently, the following concepts are explained:\n Python dunder methods Class variables ",
   "inLanguage" : "en",
-  "wordCount":  282 ,
+  "wordCount":  357 ,
   "datePublished" : "2020-10-31T16:51:02",
   "dateModified" : "2020-10-31T16:51:02",
   "image" : "https:\/\/gauravaror.github.io\/",
@@ -286,6 +286,11 @@ Out[7]: ['spacy', 'nltk']
 </code></pre><p>Adding <code>spacy</code> to <code>anlp</code> instance added <code>spacy</code> for <code>bnlp</code> instance as well. This behaviour can be undesirable in cases where another instance removes a tool you were currently using. This might create an issue while debugging as your object is being fiddled by another instance.</p>
 <p>Just wondering this could be a desirable behaviour as well. In this case, because this could enable sharing knowledge of available tools across different instances. In all, mutable objects as class variables should be used with caution.</p>
 <p>Detailed description: <a href="https://docs.python.org/3/tutorial/classes.html">Python tutorial on Classes</a></p>
+<h2 id="context-managers-with-statement">Context Managers: <em>with</em> statement</h2>
+<p>This allow us to write enter and teardown code. It is really helpful to avoid writing explicit try/except blocks and also managing automatic closure of resources.</p>
+<p>We need to implement <strong>entry</strong> and __exit functions. More details about it <a href="https://realpython.com/python-with-statement/">here</a></p>
+<h3 id="timing-your-functions-using-timer-and-with-statements">Timing your functions using Timer and with statements</h3>
+<p>It is possible to time various part of your system using Timer as a context manager, detailed description of it is in <a href="https://realpython.com/python-timer/">this post</a></p>
 
         
 
@@ -330,7 +335,7 @@ Out[7]: ['spacy', 'nltk']
 
           &nbsp;&bull;&nbsp;&copy;
           
-            2020
+            2021
           
 
           
